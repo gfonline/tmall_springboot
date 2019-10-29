@@ -70,6 +70,20 @@
             }
             return true;
         }
+
+        // 确认是否要删除
+        function checkDeleteLink() {
+            var confirmDelete = confirm("确认要删除");
+            if (confirmDelete){
+                return true;
+            }
+            return false;
+        }
+        
+        // 分页函数跳转
+        function jump(page, vue) {
+            
+        }
     </script>
     <mate http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title th:text="$(title)"></title>
