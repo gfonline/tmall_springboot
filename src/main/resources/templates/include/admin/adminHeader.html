@@ -80,9 +80,24 @@
             return false;
         }
         
-        // 分页函数跳转
+        // 分页函数跳转，向前或者向后跳一页，或者第一页或最后一页
         function jump(page, vue) {
-            
+            if ("first" == page && !vue.pagination.first){
+                vue.list(0);
+            } else if ("pre" == page && vue.pagination.hasPrevious){
+                vue.list(vue.pagination.number - 1);
+            } else if ("next" == page && vue.pagination.hasNext) {
+                vue.list(vue.pagination.number + 1);
+            } else if ("last" == page && !vue.paginatino.last){
+                vue.list(vue.pagination.totalPages - 1);
+            }
+        }
+        
+        // 分页跳转函数，跳转到指定页面
+        function jumpByNumber(start, vue) {
+            if (start != vue.pagination.number){
+                vue.list(start);
+            }
         }
     </script>
     <mate http-equiv="Content-Type" content="text/html; charset=utf-8"/>
